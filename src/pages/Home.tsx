@@ -13,15 +13,8 @@ export const Home = (): FunctionComponent => {
 	};
 
 	return (
-		<div className="bg-blue-300 font-bold w-screen h-screen flex flex-col justify-center items-center">
-			<p className="text-white text-6xl">{t("home.greeting")}</p>
-			<button
-				className="hover:cursor-pointer"
-				type="submit"
-				onClick={onTranslateButtonClick}
-			>
-				translate
-			</button>
-		</div>
+		<p className="text-red-500 font-bold">
+  			Привіт! Це моя Лабораторна №7. HMR працює!
+		</p>
 	);
 };

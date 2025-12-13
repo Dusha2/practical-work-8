@@ -8,26 +8,34 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [
-		react(),
-		tailwindcss(),
-		TanStackRouterVite(),
-		viteStaticCopy({
-			targets: [
-				{
-					src: normalizePath(path.resolve("./src/assets/locales")),
-					dest: normalizePath(path.resolve("./dist")),
-				},
-			],
-		}),
-	],
-	server: {
-		host: true,
-		strictPort: true,
-	},
-	test: {
-		environment: "jsdom",
-		setupFiles: ["./vitest.setup.ts"],
-		css: true,
-	},
+    plugins: [
+        react(),
+        tailwindcss(),
+        TanStackRouterVite(),
+        viteStaticCopy({
+            targets: [
+                {
+                    src: normalizePath(path.resolve("./src/assets/locales")),
+                    dest: normalizePath(path.resolve("./dist")),
+                },
+            ],
+        }),
+    ],
+    
+    /* 🔽 ДОДАЙ ЦЮ СЕКЦІЮ RESOLVE 🔽 */
+    resolve: {
+        alias: {
+            "@": path.resolve(__dirname, "./src"),
+        },
+    },
+
+    server: {
+        host: true,
+        strictPort: true,
+    },
+    test: {
+        environment: "jsdom",
+        setupFiles: ["./vitest.setup.ts"],
+        css: true,
+    },
 });
